@@ -1,5 +1,6 @@
 //
 // Created by Jonathan Young on 3/8/2020.
+// Sudoku Interface Class. This class handles object creation for making Sudoku puzzles. Puzzles are filled with digit values from 0 to 9, with 0 values establishing non-fixed values upon intial reading.
 //
 
 #ifndef P4_GENETICSUDOKU_SUDOKU_H
@@ -34,7 +35,7 @@ private:
         }
     };
     // a 9 by 9 collection of Cells for a puzzle
-    Cell* sudokoGrid[9][9];
+    Cell* sudokuGrid[9][9];
 };
 
 

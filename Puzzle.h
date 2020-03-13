@@ -6,16 +6,20 @@
 #ifndef P4_GENETICSUDOKU_PUZZLE_H
 #define P4_GENETICSUDOKU_PUZZLE_H
 
+#include <iostream>
 using namespace std;
 
 
 class Puzzle {
+public:
+    Puzzle();
+    ~Puzzle();
 
     // standard stream operators for input and output
-    friend ostream& operator<<(ostream&, const ); // put output object here
+    friend ostream& operator<<(ostream& out, const  ); // put output object here
 
     // stream input
-    friend istream& operator>>(istream&, ); // put input object here
+    friend istream& operator>>(istream& in, ); // put input object here
 
 
     //  Subclasses must implement stream I/O helper methods
