@@ -3,3 +3,17 @@
 //
 
 #include "SudokuFactory.h"
+
+SudokuFactory::SudokuFactory() {
+
+}
+
+SudokuFactory::~SudokuFactory() {
+
+}
+
+Sudoku *SudokuFactory::createPuzzle(string templateString) {
+    auto *templateSudoku = new Sudoku();
+    //templateSudoku->operator>>(templateString);
+    return templateSudoku;
+}

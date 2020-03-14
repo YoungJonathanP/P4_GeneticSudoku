@@ -6,9 +6,20 @@
 #define P4_GENETICSUDOKU_SUDOKUFITNESS_H
 
 #include "Fitness.h"
+#include "Sudoku.h"
 
-class SudokuFitness : public Fitness{
+class SudokuFitness : public Fitness {
+public:
+    explicit SudokuFitness(Sudoku *);
 
+    ~SudokuFitness();
+
+    int howFit();
+
+protected:
+    Sudoku *puzzle;
+private:
+    int conflict = 0;
 };
 
 

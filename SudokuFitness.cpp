@@ -3,3 +3,16 @@
 //
 
 #include "SudokuFitness.h"
+
+SudokuFitness::SudokuFitness(Sudoku *inPuz) {
+    puzzle = inPuz;
+}
+
+SudokuFitness::~SudokuFitness() {
+
+}
+
+int SudokuFitness::howFit() {
+
+    return conflict;
+}

@@ -11,7 +11,12 @@
 
 // SudokuFactory is a sub-class of PuzzleFactory
 class SudokuFactory : public PuzzleFactory {
+public:
+    SudokuFactory();
 
+    ~SudokuFactory();
+
+    Sudoku *createPuzzle(string);
 };
 
 //The SudokuFactory uses a SudokuOffspring object and implements "createPuzzle" to produce new Sudoku objects.

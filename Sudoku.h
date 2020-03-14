@@ -27,6 +27,15 @@ public:
     // helper method to assist with changing or setting sudoku cell values
     void setCell(int, int, int);
 
+    // helper method to display puzzles
+    void display();
+
+    // helper method to feed values into sudoku puzzles
+    void inStream(string);
+
+    // helper method to establish if incoming value is fixed
+    void setFixed(int row, int col);
+
 private:
     // private struct for cell objects
     struct Cell {
@@ -59,6 +68,8 @@ private:
 
     // a 9 by 9 collection of Cells for a puzzle
     Cell *sudokuGrid[9][9];
+
+
 };
 
 

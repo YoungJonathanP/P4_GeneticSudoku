@@ -4,32 +4,46 @@
 
 #include "Sudoku.h"
 
-// *** GOES IN CPP ***
-// operator<<
-// overloaded <<: prints "DIVIDE BY ZERO ERROR!!!" if Denominator is zero,
-//    prints whole numbers without Denominator (as ints), otherwise uses '/'
-
-    ostream &operator<<(ostream &Output, const Rational &R) {
-        if (R.Denominator == 0)
-            Output << endl << "DIVIDE BY ZERO ERROR!!!" << endl;
-        else if (R.Numerator == 0)                              // zero rational
-            Output << 0;
-        else if (R.Denominator == 1)                            // whole number
-            Output << R.Numerator;
-        else
-            Output << R.Numerator << "/" << R.Denominator;
-
-        return Output;
+// operator<< overload output operator
+ostream &operator<<(ostream &output, const Puzzle &endingPuz) {
+//    if (endingPuz) {
+//        output << "Could not find puzzle" << endl;
+//        return output;
+//    }
+    //output << "The best puzzle has a fitness value of: " << endingPuz.getBestFit() << endl;
+    output << "+-------+-------+-------+" << endl;
+    for (int i = 0; i < 9; i++) {
+        output << "| ";
+        for (int j = 0; j < 9; j++) {
+            if (j % 3 == 0) {
+                output << "| ";
+            }
+            //output << endingPuz.getCell(i, j) << " ";
+        }
+        output << " |" << endl;
+        if (i % 3 == 0) {
+            output << "+-------+-------+-------+" << endl;
+        }
     }
+    output << "+-------+-------+-------+" << endl;
+    return output;
+}
 
-// operator>>
-// overloaded >>: takes 2 ints as Numerator and Denominator, does no
-//    error checking, standard C casting between floats, char, etc occurs
-
-istream &operator>>(istream &input, Puzzle &inPuz) { //Rational &R
-    input >> inPuz >> R.Denominator;
-    R.reduce();
-
+// operator>> overload input
+istream &operator>>(istream &input, Sudoku &toPuz) {
+    int num = 0;
+    char c;
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            input >> c;
+            if (c < '0' || c > '9') {
+                toPuz.setCell(i, j, (int) (c - '0'));
+                if (c == '0') {
+                    toPuz.setFixed(i, j);
+                }
+            }
+        }
+    }
     return input;
 }
 
@@ -67,6 +81,10 @@ Sudoku::~Sudoku() {
 // boolean method to check if Cell has established fixed value. Returns true if cell is unable to be changed
 bool Sudoku::isFixed(int row, int col) {
     return sudokuGrid[row][col]->isFixed;
+}
+
+void Sudoku::setFixed(int row, int col) {
+    sudokuGrid[row][col]->isFixed = true;
 }
 
 // helper method to assist with changing or setting sudoku cell values

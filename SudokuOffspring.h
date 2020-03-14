@@ -14,17 +14,17 @@
 class SudokuOffspring : public Reproduction {
 public:
     // constructor for SudokuOffspring, takes a Sudoku pointer as an argument
-    explicit SudokuOffspring(); //Sudoku*
+    explicit SudokuOffspring(Sudoku*); //
     // deconstructor for SudokuOffspring
     ~SudokuOffspring();
 
     // This method creates new sudoku puzzles, potentially with mutations. Takes a pointer to a Sudoku object as an argument and returns a pointer to that created puzzle
-    Sudoku *makeOffspring(Sudoku *);
+    Sudoku *makeOffspring();
 
     int randomNum();
 
 private:
-    //Sudoku *parent;
+    Sudoku *parent;
 
 };
 
