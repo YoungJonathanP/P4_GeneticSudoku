@@ -40,7 +40,7 @@ void Population::newGeneration() {
 
 // returns the value closest to 0;
 int Population::bestFitness() {
-
+    return 0;
 }
 
 // Evaluates the best single puzzle and returns that puzzle
@@ -50,4 +50,5 @@ Sudoku *SudokuPopulation::bestIndividual() {
 //    for (auto *i: puzzles) {
 //        SudokuFitness
 //    }
+    return curr;
 }
