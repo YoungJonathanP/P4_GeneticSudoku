@@ -7,7 +7,9 @@
 
 #include "Population.h"
 
-class SudokuPopulation {
+class SudokuPopulation : public Population {
+public:
+
 
 };
 

@@ -16,10 +16,10 @@ public:
     ~Puzzle();
 
     // standard stream operators for input and output
-    friend ostream& operator<<(ostream& out, const  ); // put output object here
+    friend ostream& operator<<(ostream& out, const  Puzzle& sudPuz); // put output object here
 
     // stream input
-    friend istream& operator>>(istream& in, ); // put input object here
+    friend istream& operator>>(istream& in, Puzzle& inPuz); // put input object here
 
 
     //  Subclasses must implement stream I/O helper methods
@@ -34,37 +34,6 @@ public:
 // overloaded >>: takes 2 ints as Numerator and Denominator, does no
 //    error checking, standard C casting between floats, char, etc occurs
     //friend istream &operator>>(istream &input, Rational &R);
-
-
-    // *** GOES IN CPP ***
-    // operator<<
-// overloaded <<: prints "DIVIDE BY ZERO ERROR!!!" if Denominator is zero,
-//    prints whole numbers without Denominator (as ints), otherwise uses '/'
-
-//    ostream &operator<<(ostream &Output, const Rational &R) {
-//        if (R.Denominator == 0)
-//            Output << endl << "DIVIDE BY ZERO ERROR!!!" << endl;
-//        else if (R.Numerator == 0)                              // zero rational
-//            Output << 0;
-//        else if (R.Denominator == 1)                            // whole number
-//            Output << R.Numerator;
-//        else
-//            Output << R.Numerator << "/" << R.Denominator;
-//
-//        return Output;
-//    }
-
-// operator>>
-// overloaded >>: takes 2 ints as Numerator and Denominator, does no
-//    error checking, standard C casting between floats, char, etc occurs
-
-//    istream &operator>>(istream &input, Rational &R) {
-//        input >> R.Numerator >> R.Denominator;
-//        R.reduce();
-//
-//        return input;
-//    }
-
 
 };
 
